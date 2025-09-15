@@ -12,38 +12,6 @@ This mod starts a small local HTTP server on `http://127.0.0.1:18080` to accept 
 - Commands usable both server-side and client-side (works on public servers)
 - Optional global-chat prefix via `/nowplay g` (prepends `!`)
 
-### Endpoints
-- `POST /nowplaying` with JSON body:
-  - `{ "title": "Song Title", "artist": "Artist Name", "source": "YouTube Music" }`
-- `POST /clear` clears the current state
-- `GET /nowplaying` returns the current state as JSON
-
-### Quick test with PowerShell
-```powershell
-curl -Method POST -Uri http://127.0.0.1:18080/nowplaying -ContentType 'application/json' -Body '{"title":"Test Song","artist":"Test Artist","source":"YouTube Music"}'
-```
-Then in Minecraft, run:
-```
-/nowplay
-```
-
-### Last.fm integration
-- Set your Last.fm API key via env var or gradle properties.
-  - Env var example (PowerShell):
-  ```powershell
-  $env:LASTFM_API_KEY="YOUR_KEY"; ./gradlew runClient
-  ```
-  - Or set in `gradle.properties`:
-  ```
-  lastfm_api_key=YOUR_KEY
-  lastfm_username=upsetsummer
-  ```
-  Then pass as JVM system properties when launching the client or server, for example in your IDE run configuration:
-  ```
-  -Dlastfm_api_key=%lastfm_api_key% -Dlastfm_username=%lastfm_username%
-  ```
-  If using `./gradlew runClient`, you can set `ORG_GRADLE_PROJECT_lastfm_api_key` and `ORG_GRADLE_PROJECT_lastfm_username` environment variables and map them into JVM args in your IDE or run config.
-
 ### Commands
 Server-side (если сервер с модом):
 - `/nowplay` — отправляет текущий трек в чат
