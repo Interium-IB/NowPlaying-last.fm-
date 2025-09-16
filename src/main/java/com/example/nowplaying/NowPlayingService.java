@@ -36,7 +36,7 @@ public final class NowPlayingService {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        sb.append("Сейчас играет: ");
+        sb.append("Now Playing: ");
         if (!artist.isEmpty()) {
             sb.append(artist).append(" — ");
         }
