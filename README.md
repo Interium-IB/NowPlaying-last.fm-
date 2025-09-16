@@ -1,22 +1,13 @@
-# 🎵 Now Playing Integration (Minecraft + Last.fm)
-
-Мод для интеграции информации о текущем треке из **YouTube Music**, **Spotify**, **Last.fm** и других сервисов прямо в чат Minecraft.  
-Поддерживает как клиентский, так и серверный режим работы.
-
+## For the server:  
+- Place the compiled `.jar` mod and **Fabric API** in the `mods/` folder.  
+- Start the server — a local HTTP server and Last.fm poller will launch upon startup.
 ---
-
-Для сервера:  
-- Положите собранный `.jar` мода и **Fabric API** в папку `mods/`.  
-- Запустите сервер — при старте поднимется локальный HTTP-сервер и Last.fm-поллер.
-
----
-
-## 🔗 Интеграция с Last.fm
-
-Мод поднимает локальный HTTP-сервер на  
-`http://127.0.0.1:18080`, который принимает данные о текущем воспроизведении из браузера.  
-
-Доступные сервисы:
+## 🔗 Integration with Last.fm
+A mod for integrating information about the current track from **YouTube Music**, **Spotify**, **Last.fm**, and other services directly into Minecraft chat.  
+Supports both client and server modes.
+The mod launches a local HTTP server at  
+`http://127.0.0.1:18080`, which receives data about the current playback from the browser.  
+Available services:
 - YouTube
 - YouTube Music
 - Spotify
@@ -24,57 +15,30 @@
 - Deezer
 - Sonos
 - BandCamp
-
 ---
-
-## ⌨️ Команды
-
-### Серверные (если сервер с модом)
-- `/nowplay` — отправляет текущий трек в чат  
-- `/nowplay g` — отправляет в чат `!<сообщение>` (для глобальных чатов)  
-- `/nowplay lastfm <username>` — меняет ник Last.fm  
-  - локально для игрока  
-  - глобально (если выполнить из консоли)  
-- `/nowplay lastfm api <key>` — устанавливает Last.fm API ключ глобально на сервере  
-
-### Клиентские (работают даже на публичных серверах без мода)
-- `/nowplay` или `/np` — отправляет текущий трек в чат  
-- `/nowplay g` или `/np g` — отправляет `!<сообщение>`  
-- `/nowplay lastfm <username>` — меняет ник Last.fm локально у клиента  
-- `/nowplay lastfm api <key>` — сохраняет API ключ локально  
-
-💡 Если сервер и клиент оба с модом — доступны обе группы команд.
-
+## ⌨️ Commands
+### Server
+- `/nowplay lastfm api <key>` — sets the Last.fm API key globally on the server
+- - `/nowplay lastfm <username>` — changes the Last.fm nickname  
+  - locally for the player  
+  - globally (if executed from the console)
+### Client
+- `/nowplay` or `/np` — sends the current track to chat  
+- `/nowplay g` or `/np g` — sends `!<message>`  
+- `/nowplay lastfm <username>` — changes the Last.fm nickname locally on the client  
+- `/nowplay lastfm api <key>` — saves the API key locally
+💡 If both the server and client have the mod installed, both command groups are available.
 ---
-
-## ⚙️ Конфигурация
-
-- **Глобальный конфиг**:  
+## ⚙️ Configuration
+- **Global config**:  
   `config/youtube-music-nowplaying.properties`  
   - `lastfm_username`  
   - `lastfm_api_key`  
-
-- **Персональный конфиг игрока (на сервере)**:  
+- **Personal player config (on the server)**:  
   `config/youtube-music-nowplaying/players/<UUID>.properties`  
-  - `lastfm_username`  
-
+  - `lastfm_username`
 ---
-
-## 🛠️ Версии
-
+## 🛠️ Versions
 - Minecraft: `1.21.6`  
 - Fabric API: `0.127.0+1.21.6`
-
----
-
-## 📌 Сценарии использования
-
-- **Только клиент с модом, сервер без мода**  
-  Используйте клиентские команды `/nowplay` или `/nowplay g`.  
-  Сообщение будет отправлено как обычный текст игрока.  
-
-- **Сервер с модом**  
-  Используйте серверные команды.  
-  Локальный эндпоинт `http://127.0.0.1:18080` и Last.fm-поллер работают на стороне сервера.  
-
 ---
