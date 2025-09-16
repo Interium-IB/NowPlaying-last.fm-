@@ -55,7 +55,6 @@ public class ExampleModClient implements ClientModInitializer {
 			return 1;
 		}
 		client.player.networkHandler.sendChatMessage(message);
-		client.player.sendMessage(Text.literal(message), false);
 		return 1;
 	}
 
@@ -68,7 +67,6 @@ public class ExampleModClient implements ClientModInitializer {
 			return 1;
 		}
 		client.player.networkHandler.sendChatMessage("!" + message);
-		client.player.sendMessage(Text.literal("!" + message), false);
 		return 1;
 	}
 
