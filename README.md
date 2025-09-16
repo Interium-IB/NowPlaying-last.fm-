@@ -1,7 +1,3 @@
-## For the server:  
-- Place the compiled `.jar` mod and **Fabric API** in the `mods/` folder.  
-- Start the server — a local HTTP server and Last.fm poller will launch upon startup.
----
 ## 🔗 Integration with Last.fm
 A mod for integrating information about the current track from **YouTube Music**, **Spotify**, **Last.fm**, and other services directly into Minecraft chat.  
 Supports both client and server modes.
