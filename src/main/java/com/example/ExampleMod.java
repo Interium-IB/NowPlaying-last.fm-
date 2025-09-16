@@ -82,11 +82,8 @@ public class ExampleMod implements ModInitializer {
 			context.getSource().sendFeedback(() -> Text.literal("Ничего не играет."), false);
 			return Command.SINGLE_SUCCESS;
 		}
-		// Broadcast the same message to all players
-		var server = context.getSource().getServer();
-		var playerManager = server.getPlayerManager();
-		Text normal = Text.literal(message);
-		playerManager.getPlayerList().forEach(p -> p.sendMessage(normal, false));
+		// Send only to command executor
+		context.getSource().sendFeedback(() -> Text.literal(message), false);
 		return Command.SINGLE_SUCCESS;
 	}
 
@@ -96,10 +93,8 @@ public class ExampleMod implements ModInitializer {
 			context.getSource().sendFeedback(() -> Text.literal("Ничего не играет."), false);
 			return Command.SINGLE_SUCCESS;
 		}
-		var server = context.getSource().getServer();
-		var playerManager = server.getPlayerManager();
-		Text normal = Text.literal("!" + message);
-		playerManager.getPlayerList().forEach(p -> p.sendMessage(normal, false));
+		// Send only to command executor
+		context.getSource().sendFeedback(() -> Text.literal("!" + message), false);
 		return Command.SINGLE_SUCCESS;
 	}
 
