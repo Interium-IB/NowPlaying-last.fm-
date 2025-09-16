@@ -1,19 +1,24 @@
-## Setup
+## Установка
 
-For setup instructions please see the [fabric documentation page](https://docs.fabricmc.net/develop/getting-started/setting-up-a-development-environment) that relates to the IDE that you are using.
+Инструкции по настройке смотрите на странице документации Fabric
+, соответствующей вашей среде разработки (IDE).
 
-## Now Playing (YouTube Music) Integration
+## Интеграция с last.fm
 
-This mod starts a small local HTTP server on `http://127.0.0.1:18080` to accept "now playing" updates from your browser and exposes a Minecraft command `/nowplay` to show the current track in chat.
+Этот мод запускает небольшой локальный HTTP-сервер по адресу http://127.0.0.1:18080, чтобы принимать данные о текущем воспроизведении из браузера, и добавляет команду Minecraft /nowplay для отображения текущего трека в чате.
 
-### Features
-- Local HTTP endpoint to receive now-playing updates
-- Last.fm poller for the user’s current track
-- Commands usable both server-side and client-side (works on public servers)
-- Optional global-chat prefix via `/nowplay g` (prepends `!`)
+### Интеграция
+last.fm:
+- YouTube
+- YouTube Music
+- Spotify
+- SoundCloud
+- Deezer
+- Sonos
+- BandCamp
 
-### Commands
-Server-side (если сервер с модом):
+### Команды
+Если сервер с модом:
 - `/nowplay` — отправляет текущий трек в чат
 - `/nowplay g` — отправляет в чат `!<сообщение>` (для глобальных чатов)
 - `/nowplay lastfm <username>` — меняет ник Last.fm (для исполнившего игрока локально на сервере; из консоли — глобально)
@@ -41,8 +46,5 @@ Server-side (если сервер с модом):
 ### Сценарии использования
 - Только клиент с модом, сервер без мода: используйте клиентские команды `/nowplay` или `/nowplay g` — сообщение уйдет в общий чат как обычное сообщение игрока.
 - Сервер с модом: используйте серверные команды. Эндпоинт `http://127.0.0.1:18080` и опрос Last.fm поднимаются на стороне сервера.
-
-### Userscript (Tampermonkey) for YouTube Music
-Install a userscript manager (e.g., Tampermonkey) and add the following script. It pushes the current track whenever it changes on `music.youtube.com`.
 
 ```javascript
