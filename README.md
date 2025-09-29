@@ -33,8 +33,3 @@ Available services:
 - **Personal player config (on the server)**:  
   `config/youtube-music-nowplaying/players/<UUID>.properties`  
   - `lastfm_username`
----
-## 🛠️ Versions
-- Minecraft: `1.21.6`  
-- Fabric API: `0.127.0+1.21.6`
----
